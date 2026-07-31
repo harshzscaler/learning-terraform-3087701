@@ -12,7 +12,7 @@ data "aws_ami" "app_ami" {
 # 2. Deploy the instance and install Nginx automatically
 resource "aws_instance" "web" {
   ami           = data.aws_ami.app_ami.id
-  instance_type = "t2.micro" # Fits in Free Tier if you use t2.micro/t3.micro
+  instance_type = "t3.micro" # Fits in Free Tier if you use t2.micro/t3.micro
 
   # This script runs once the server starts to install and start Nginx
   user_data = <<-EOF
